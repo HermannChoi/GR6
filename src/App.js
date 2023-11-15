@@ -1,7 +1,28 @@
 import logo from "./logo.svg";
 import "./App.css";
+import React, { useState } from "react";
+// import useRandomStore from "./RandomStore/RandomStore";
+import axios from "axios";
 
 function App() {
+  // const { count, inc } = useRandomStore();
+  const [productInfo, setProductInfo] = useState([]);
+
+  async function getItem(categoryName) {
+    try {
+      let url = "https://fakestoreapi.com/products";
+      if (categoryName) {
+        url += `/category/${categoryName}`;
+      }
+      const response = await axios.get(url);
+      let products = response.data;
+
+      setProductInfo(products);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div>
       <header className="header">
@@ -19,20 +40,51 @@ function App() {
       <section className="section">
         <div className="page_title">Products</div>
         <div className="buttons_section">
-          <button className="all_button buttons">모두</button>
-          <button className="shoes buttons">신발</button>
-          <button className="jewelry buttons">쥬얼리</button>
-          <button className="mens_clothing buttons">남성의류</button>
-          <button className="womens_clothing buttons">여성의류</button>
+          <button className="all_button buttons" onClick={() => getItem("")}>
+            모두
+          </button>
+          <button
+            className="electronics buttons"
+            onClick={() => getItem("electronics")}
+          >
+            전자기기
+          </button>
+          <button
+            className="jewelry buttons"
+            onClick={() => getItem("jewelery")}
+          >
+            쥬얼리
+          </button>
+          <button
+            className="mens_clothing buttons"
+            onClick={() => getItem("men's clothing")}
+          >
+            남성의류
+          </button>
+          <button
+            className="womens_clothing buttons"
+            onClick={() => getItem("women's clothing")}
+          >
+            여성의류
+          </button>
         </div>
-        <div className="products_section"></div>
+        <div className="products_section">
+          {productInfo.map((product) => (
+            <div className="product_container" key={product.id}>
+              <div className="product_picture">
+                <img src={product.image} alt={product.title} />
+              </div>
+              <div className="product_title">{product.title}</div>
+              <div className="product_container_bottom">
+                <button className="addToCartButton">장바구니에 담기</button>
+                <div className="product_price">${product.price}</div>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );
 }
 
 export default App;
-
-//작가 vector_corp.com 출처 Freepik
-//작가 rawpixel.com 출처 Freepik
-//작가 rawpixel.com출처 Freepik
