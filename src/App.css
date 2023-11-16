@@ -11,7 +11,7 @@ a {
 
 img {
   width: 170px;
-  height: 210px;
+  max-height: 220px;
 }
 
 .material-icons {
@@ -100,29 +100,30 @@ img {
   margin: 0 5px;
   border: none;
   border-radius: 5px;
+  box-shadow: 0px 5px 20px black;
   transition: all 0.3s;
 }
 
 .buttons:hover {
   flex: 1.2;
-  background-color: #ffc836;
+  background-color: #9e009e;
+  color: white;
   font-weight: bold;
   transition: all 0.3s;
 }
 
 .buttons:active {
-  color: white;
   background-color: orange;
-  border: 2px solid white;
 }
 
 .products_section {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: left;
   width: 1100px;
-  height: 100px;
+  height: 100%;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .product_container {
@@ -130,13 +131,14 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: calc(25% - 17px);
+  width: calc(25% - 16px);
   height: 350px;
   margin: 5px;
-  border: 1px solid white;
+  border: 3px solid white;
   border-radius: 5px;
   background-color: white;
   color: black;
+  cursor: pointer;
   transition: all 0.3s ease;
   animation: fadeIn 0.4s ease-out;
 }
@@ -151,8 +153,12 @@ img {
 }
 
 .product_container:hover {
-  width: calc(25% - 12px);
-  border-color: gold;
+  border: 3px solid gray;
+  transition: all 0.3s ease;
+}
+
+.product_container:active {
+  border: 3px solid #9e009e;
   transition: all 0.3s ease;
 }
 
@@ -161,16 +167,50 @@ img {
   justify-content: center;
   align-items: center;
   width: 250px;
+  height: 250px;
   margin-bottom: 20px;
 }
 
-.product_title {
+.product_title_container {
+  display: flex;
+  justify-content: center;
+  flex: 0 0 auto;
   width: 200px;
+
+  font-size: 15px;
+  font-weight: bold;
+  color: #9d9993;
+  transition: all 0.2s;
+}
+
+.product_title_container:hover {
+  color: #1a1d22;
+}
+
+.product_title {
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 10px;
 }
+
+/* .product_title_container:hover .product_title {
+  animation: textLoop 7s linear infinite;
+  color: #1a1d22;
+  transition: all 0.5s;
+}
+
+@keyframes textLoop {
+  0% {
+    -webkit-transform: translate3d(50%, 0, 0);
+    transform: translate3d(50%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+} */
 
 .product_container_bottom {
   display: flex;
@@ -186,17 +226,29 @@ img {
   background-color: white;
   border: 1px solid gray;
   border-radius: 5px;
+  cursor: pointer;
   transition: all 0.2s;
 }
 
 .addToCartButton:hover {
   width: 130px;
-  background-color: beige;
+  background-color: rgb(255, 217, 147);
   color: black;
   font-weight: bold;
   transition: all 0.2s;
 }
 
+.addToCartButton:active {
+  background-color: rgb(255, 206, 115);
+  border-width: 3px;
+}
+
 .product_price {
   font-size: 18px;
+  transition: 0.2s;
+}
+
+.product_price:hover {
+  font-weight: bold;
+  transition: 0.2s;
 }

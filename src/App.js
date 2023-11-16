@@ -1,11 +1,14 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React, { useState } from "react";
-// import useRandomStore from "./RandomStore/RandomStore";
 import axios from "axios";
+
+// import useRandomStore from "./RandomStore/RandomStore";
+// import useProductCallStore from "./productCallStore/productCallStore";
 
 function App() {
   // const { count, inc } = useRandomStore();
+  // const { productInfos, callInfos } = useProductCallStore();
   const [productInfo, setProductInfo] = useState([]);
 
   async function getItem(categoryName) {
@@ -74,7 +77,9 @@ function App() {
               <div className="product_picture">
                 <img src={product.image} alt={product.title} />
               </div>
-              <div className="product_title">{product.title}</div>
+              <div className="product_title_container">
+                <div className="product_title">{product.title}</div>
+              </div>
               <div className="product_container_bottom">
                 <button className="addToCartButton">장바구니에 담기</button>
                 <div className="product_price">${product.price}</div>

@@ -1,5 +1,7 @@
 import { create } from "zustand";
 
-const useProductCallStore = create((data) => ({
-  product: [],
+const useProductCallStore = create(() => ({
+  productInfo: [],
 }));
+
+export default useProductCallStore;
