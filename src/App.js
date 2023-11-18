@@ -1,15 +1,8 @@
-import logo from "./logo.svg";
 import "./App.css";
-import React, { useState } from "react";
-import axios from "axios";
-import MainPage from "./MainPage";
-
-// import useRandomStore from "./RandomStore/RandomStore";
-// import useProductCallStore from "./productCallStore/productCallStore";
+import React from "react";
+import MainPage from "./MainPage/MainPage";
 
 function App() {
-  // const { count, inc } = useRandomStore();
-  // const { productInfos, callInfos } = useProductCallStore();
 
   return (
     <div>

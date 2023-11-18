@@ -11,7 +11,7 @@ const useProductCallStore = create((set) => ({
       }
       const response = await axios.get(url);
       let products = response.data;
-      set((state) => ({ productInfo: products }));
+      set(() => ({ productInfo: products }));
     } catch (error) {
       set((state) => ({ productInfo: [] }));
 
