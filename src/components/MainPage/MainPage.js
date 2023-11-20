@@ -1,15 +1,20 @@
-import React from "react";
-import useProductCallStore from "../app/productCallStore/productCallStore";
-import Header from "../Header/Header";
+import React, {useEffect} from "react";
+import useProductCallStore from "../../app/productCallStore/productCallStore";
 import styles from "./MainPage.module.css";
+import { Link } from "react-router-dom";
+import useCartStore from "../../app/cartStore/cartStore";
 
 
 function MainPage() {
   const { productInfo, setProductInfo } = useProductCallStore();
+  const { setCarts } = useCartStore();
+
+  useEffect((e) => {
+    setProductInfo("");
+  }, []);
 
   return (
     <div>
-      <Header />
       <section className={styles.section}>
         <div className={styles.page_title}>Products</div>
         <div className={styles.buttons_section}>
@@ -46,7 +51,7 @@ function MainPage() {
         </div>
         <div className={styles.products_section}>
           {productInfo.map((product) => (
-            <div className={styles.product_container} key={product.id}>
+            <Link to="/detail" className={styles.product_container} key={product.id}>
               <div className={styles.product_picture}>
                 <img src={product.image} alt={product.title} />
               </div>
@@ -54,10 +59,12 @@ function MainPage() {
                 <div className={styles.product_title}>{product.title}</div>
               </div>
               <div className={styles.product_container_bottom}>
-                <button className={styles.addToCartButton}>장바구니에 담기</button>
+                <button onClick={(e) => {
+                  e.preventDefault()
+                  setCarts(product)}} className={styles.addToCartButton}>장바구니에 담기</button>
                 <div className={styles.product_price}>${product.price}</div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
