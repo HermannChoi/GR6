@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "./CartPage.module.css";
 import useCartStore from "../../app/cartStore/cartStore";
+import { Link } from "react-router-dom";
 
 function CartPage() {
   const { cartItems, total, removeFromCart, updateQuantity, calculateTotal } =
@@ -20,6 +21,9 @@ function CartPage() {
               local_mall
             </div>
             <div className={styles.cart_state}>장바구니가 비어있습니다.</div>
+            <Link to="/">
+              <button className={styles.continue_shopping}>계속 쇼핑</button>
+            </Link>
           </div>
         ) : (
           <>

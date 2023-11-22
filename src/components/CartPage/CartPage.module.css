@@ -25,6 +25,22 @@
   font-size: 30px;
 }
 
+.continue_shopping {
+  width: 200px;
+  height: 50px;
+  color: white;
+  background-color: purple;
+  border: 2px solid purple;
+  border-radius: 10px;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.continue_shopping:hover {
+  border-color: white;
+  font-weight: bold;
+}
+
 .product_space {
   position: relative;
   display: flex;
