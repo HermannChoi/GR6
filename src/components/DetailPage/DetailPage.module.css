@@ -1,0 +1,29 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.subheading {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.product_space {
+  display: flex;
+  justify-content: center;
+}
+
+.image_space {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 600px;
+}
+
+.image {
+  width: 300px;
+  height: 600px;
+}
