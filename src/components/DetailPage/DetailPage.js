@@ -10,10 +10,6 @@ function DetailPage() {
 
   const cartItemsId = useCartStore((state) => state.cartItems);
 
-  // useEffect(() => {
-  //   setSelectedProduct(detailProduct.id);
-  // });
-
   return (
     <div className={styles.body}>
       <div className={styles.subheading}>상품 페이지</div>
