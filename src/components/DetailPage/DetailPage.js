@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./DetailPage.module.css";
 import useDetailStore from "../../app/detailStore/detailStore";
 import useCartStore from "../../app/cartStore/cartStore";

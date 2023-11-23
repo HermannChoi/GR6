@@ -1,26 +1,23 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth,
-createUserWithEmailAndPassword,
-signInWithEmailAndPassword } from "firebase/auth";
-
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDqkxaNLvaW7aFVm1WoSZ9zgUnzyI78SrY",
-  authDomain: "shoppingmall-b57b3.firebaseapp.com",
-  projectId: "shoppingmall-b57b3",
-  storageBucket: "shoppingmall-b57b3.appspot.com",
-  messagingSenderId: "11461069105",
-  appId: "1:11461069105:web:7565934d8aea3012d54810",
-  measurementId: "G-7TRJGGJYYP"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app)
+const auth = getAuth(app);
 
-export {
-  auth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-}
+export { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword };
